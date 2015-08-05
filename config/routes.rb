@@ -3,17 +3,20 @@ Rails.application.routes.draw do
   get('/', { :controller => 'movies', :action => 'index' })
 
   # Routes for the Director resource:
-  # CREATE
+  
+  ##Create
+
   get('/directors/new_form', { :controller => 'directors', :action => 'new_form' })
-  get('/create_director', { :controller => 'director', :action => 'create_row' })
+  get('/create_director/:id', { :controller => 'directors', :action => 'create_row' })
+ 
+  ##Read
 
-  # READ
   get('/directors', { :controller => 'directors', :action => 'index' })
-  get('/directors/:id', { :controller => 'directors', :action => 'show' })
-
-  # UPDATE
+  get('/directors/:id', { :controller => 'directors', :action => 'show_details' })
+  ##Update
+  
   get('/directors/:id/edit_form', { :controller => 'directors', :action => 'edit_form' })
-  get('/update_director/:id', { :controller => 'directors', :action => 'update_row' })
+  get('/update_director/:id', { :controller => 'directors', :action => 'update_director' })
 
   # DELETE
   get('/delete_director/:id', { :controller => 'directors', :action => 'destroy' })
@@ -22,7 +25,7 @@ Rails.application.routes.draw do
   # Routes for the Movie resource:
   # CREATE
   get('/movies/new_form', { :controller => 'movies', :action => 'new_form' })
-  get('/create_movie', { :controller => 'movies', :action => 'create_row' })
+  get('/create_movie:id', { :controller => 'movies', :action => 'create_row' })
 
   # READ
   get('/movies', { :controller => 'movies', :action => 'index' })
@@ -30,7 +33,7 @@ Rails.application.routes.draw do
 
   # UPDATE
   get('/movies/:id/edit_form', { :controller => 'movies', :action => 'edit_form' })
-  get('/update_movie/:id', { :controller => 'movies', :action => 'update_row' })
+  get('/update_movie/', { :controller => 'movies', :action => 'update_row' })
 
   # DELETE
   get('/delete_movie/:id', { :controller => 'movies', :action => 'destroy' })
@@ -68,5 +71,7 @@ Rails.application.routes.draw do
 
   # DELETE
   get('/delete_actor/:id', { :controller => 'actors', :action => 'destroy' })
-  #------------------------------
+  get('/actors/:id', { :controller => 'actors', :action => 'show' })
+
+  #-----------------------------
 end
