@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   # Routes for the Movie resource:
   # CREATE
   get('/movies/new_form', { :controller => 'movies', :action => 'new_form' })
-  get('/create_movie:id', { :controller => 'movies', :action => 'create_row' })
+  get('/create_movie', { :controller => 'movies', :action => 'create_row' })
 
   # READ
   get('/movies', { :controller => 'movies', :action => 'index' })
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   # UPDATE
   get('/movies/:id/edit_form', { :controller => 'movies', :action => 'edit_form' })
-  get('/update_movie/', { :controller => 'movies', :action => 'update_row' })
+  get('/update_movie/:id', { :controller => 'movies', :action => 'update_row' })
 
   # DELETE
   get('/delete_movie/:id', { :controller => 'movies', :action => 'destroy' })
